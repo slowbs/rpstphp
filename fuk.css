@@ -1,0 +1,82 @@
+input {display: block !important; padding: 0 !important; margin: 0 !important; width: 100% !important; 
+    border-radius: 0 !important; line-height: 1 !important; border: 0 !important;}
+
+    td {margin: 0 !important; padding: 0 !important;}
+    #right {border-right-style: none;}
+    #left {border-left-style: none;}
+    .foo
+{
+padding-left: 108px !important;
+}
+@page {
+size: auto;
+}
+.cl1{
+background-color:#F5A9A9
+}
+.cl2{
+background-color:#F5BCA9
+}
+.cl3{
+background-color:#F5D0A9
+}
+.cl4{
+background-color:#F7D358
+}
+.cl5{
+background-color:#F4FA58
+}
+.cl6{
+background-color:#ACFA58
+}
+.cl7{
+background-color:#81F7BE
+}
+.cl8{
+background-color:#A9D0F5
+}
+.cl9{
+background-color:#A9A9F5
+}
+.cl10{
+background-color:#D0A9F5
+}
+.cl11{
+background-color:#04B45F
+}
+.cl12{
+background-color:#9AFE2E
+}
+.cl13{
+background-color:#2EFE2E
+}
+.cl14{
+background-color:#F5A9A9
+}
+.cl15{
+background-color:#F5BCA9
+}
+.cl16{
+background-color:#F5D0A9
+}
+.cl17{
+background-color:#F7D358
+}
+.cl18{
+background-color:#F4FA58
+}
+.cl19{
+background-color:#ACFA58
+}
+.cl20{
+background-color:#81F7BE
+}
+.cl21{
+background-color:#A9D0F5
+}
+.cl22{
+background-color:#A9A9F5
+}
+.cl23{
+background-color:#D0A9F5
+}

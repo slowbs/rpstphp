@@ -1,0 +1,164 @@
+input {display: block !important; padding: 0 !important; margin: 0 !important; width: 100% !important; 
+    border-radius: 0 !important; line-height: 1 !important; border: 0 !important;}
+
+    td {margin: 0 !important; padding: 0 !important;}
+    #right {border-right-style: none;}
+    #left {border-left-style: none;}
+    .foo
+{
+padding-left: 108px !important;
+}
+@media print {
+    .noprint { 
+        display: none
+    }
+    .mypages div.compare {
+        white-space: normal
+    }
+
+    .mypages .compare .estate {
+        padding-bottom: 110px
+	}
+	.cl1{
+		background-color:#F5A9A9 !important;
+		}
+		.cl2{
+		background-color:#F5BCA9 !important;
+		}
+		.cl3{
+		background-color:#F5D0A9 !important;
+		}
+		.cl4{
+		background-color:#F7D358 !important;
+		}
+		.cl5{
+		background-color:#F4FA58 !important;
+		}
+		.cl6{
+		background-color:#ACFA58 !important;
+		}
+		.cl7{
+		background-color:#81F7BE !important;
+		}
+		.cl8{
+		background-color:#A9D0F5 !important;
+		}
+		.cl9{
+		background-color:#A9A9F5 !important;
+		}
+		.cl10{
+		background-color:#D0A9F5 !important;
+		}
+		.cl11{
+		background-color:#04B45F !important;
+		}
+		.cl12{
+		background-color:#9AFE2E !important;
+		}
+		.cl13{
+		background-color:#2EFE2E !important;
+		}
+		.cl14{
+		background-color:#F5A9A9 !important;
+		}
+		.cl15{
+		background-color:#F5BCA9 !important;
+		}
+		.cl16{
+		background-color:#F5D0A9 !important;
+		}
+		.cl17{
+		background-color:#F7D358 !important;
+		}
+		.cl18{
+		background-color:#F4FA58 !important;
+		}
+		.cl19{
+		background-color:#ACFA58 !important;
+		}
+		.cl20{
+		background-color:#81F7BE !important;
+		}
+		.cl21{
+		background-color:#A9D0F5 !important;
+		}
+		.cl22{
+		background-color:#A9A9F5 !important;
+		}
+		.cl23{
+		background-color:#D0A9F5 !important;
+		}
+		
+}
+@page {
+size: auto;
+}
+.cl1{
+background-color:#F5A9A9 !important;
+}
+.cl2{
+background-color:#F5BCA9 !important;
+}
+.cl3{
+background-color:#F5D0A9 !important;
+}
+.cl4{
+background-color:#F7D358 !important;
+}
+.cl5{
+background-color:#F4FA58 !important;
+}
+.cl6{
+background-color:#ACFA58 !important;
+}
+.cl7{
+background-color:#81F7BE !important;
+}
+.cl8{
+background-color:#A9D0F5 !important;
+}
+.cl9{
+background-color:#A9A9F5 !important;
+}
+.cl10{
+background-color:#D0A9F5 !important;
+}
+.cl11{
+background-color:#04B45F !important;
+}
+.cl12{
+background-color:#9AFE2E !important;
+}
+.cl13{
+background-color:#2EFE2E !important;
+}
+.cl14{
+background-color:#F5A9A9 !important;
+}
+.cl15{
+background-color:#F5BCA9 !important;
+}
+.cl16{
+background-color:#F5D0A9 !important;
+}
+.cl17{
+background-color:#F7D358 !important;
+}
+.cl18{
+background-color:#F4FA58 !important;
+}
+.cl19{
+background-color:#ACFA58 !important;
+}
+.cl20{
+background-color:#81F7BE !important;
+}
+.cl21{
+background-color:#A9D0F5 !important;
+}
+.cl22{
+background-color:#A9A9F5 !important;
+}
+.cl23{
+background-color:#D0A9F5 !important;
+}
