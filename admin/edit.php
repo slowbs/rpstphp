@@ -251,19 +251,41 @@ Last-Modified:  <?php echo $row['updated_time'];?> by <?php echo $row['updated_b
     </form>
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <br>
-<form method='post' action='upload.php?ap=<?php echo $ap?>' enctype='multipart/form-data'>
+  <br>
+<form method="post" action="upload.php" enctype="multipart/form-data">
 <div class="form-group row">
-    <div class="form-group col-md-9">
-      <div class="custom-file">
-        <input type='file' name='files[]' multiple class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
+<label for="amphur" class="col-md-3 col-form-label" align="left">ป้าย รั้วด้านหน้า</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files1[]' multiple class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
       </div>
     </div>
-    <div class="form-group col-md-3">
-      <button type='submit' value='Submit' name='submit' id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> Upload</button>
+    <label for="amphur" class="col-md-3 col-form-label" align="left">ถนน</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files2[]' multiple class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
+      </div>
     </div>
+    <label for="amphur" class="col-md-3 col-form-label" align="left">รั้ว</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files3[]' multiple class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
+      </div>
     </div>
+    <label for="amphur" class="col-md-3 col-form-label" align="left">ป้าย รั้วด้านหน้า</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files4[]' multiple class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
+      </div>
+    </div>
+    <div class="form-group col-md-4 offset-md-8">
+<button type='submit' value='Submit' name='submit' id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> เพิ่มรูป</button>
+    </div>
+</div>
   </form>
   <table class="table table-hover table-bordered table-striped table-sm" id="myTable">
   <thead style="text-align:center" class="thead-dark">
