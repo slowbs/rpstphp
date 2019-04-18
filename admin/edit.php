@@ -89,7 +89,7 @@ try {
   <div class="dropdown-menu">
   <a class="dropdown-item" href="year.php">แก้ไขข้อมูล</a>
     <a class="dropdown-item" href="updateuserform.php?id=<?php echo $_SESSION['user']['id'] ?>">เปลี่ยนรหัสผ่าน</a>
-    <!-- <a class="dropdown-item" href="totaluser.php">จัดการผู้ใช้</a> -->
+    <a class="dropdown-item" href="totaluser.php">จัดการผู้ใช้</a>
     <a class="dropdown-item" href="../index.php?logout='1'">ออกจการะบบ</a>
   </div>
 </div>
