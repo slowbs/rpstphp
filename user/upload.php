@@ -10,7 +10,7 @@
     $ap = $_SESSION['user']['hospcode'];
 include "dbupload.php";
  
-if(empty($_FILES['files']['name']['0']) && empty($_FILES['files2']['name']['0'])){
+if(empty($_FILES['files1']['name']['0']) && empty($_FILES['files2']['name']['0'])){
 
   echo "<script>
   alert('กรุณาเลือกรูปภาพ');
@@ -19,7 +19,7 @@ if(empty($_FILES['files']['name']['0']) && empty($_FILES['files2']['name']['0'])
 
 }
 else{
-  print_r($_FILES);
+  //print_r($_FILES);
   // Count total files
   $countarray = count($_FILES);
   for($j=1;$j<=$countarray;$j++){

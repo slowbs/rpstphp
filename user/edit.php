@@ -252,38 +252,40 @@ try {
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <br>
-<form method="post" action="upload.php?type=1" enctype="multipart/form-data">
+<form method="post" action="upload.php" enctype="multipart/form-data">
 <div class="form-group row">
-    <div class="form-group col-md-9">
-      <div class="custom-file">
+<label for="amphur" class="col-md-3 col-form-label" align="left">ป้าย รั้วด้านหน้า</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
         <input type='file' name='files1[]' multiple class="custom-file-input" id="customFile">
         <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
       </div>
     </div>
-    <div class="form-group col-md-9">
-      <div class="custom-file">
+    <label for="amphur" class="col-md-3 col-form-label" align="left">ถนน</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
         <input type='file' name='files2[]' multiple class="custom-file-input" id="customFile">
         <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
       </div>
     </div>
-    <div class="form-group col-md-3">
-      <button type='submit' value='Submit' name='submit' id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> เพิ่มรูป</button>
-    </div>
-    </div>
-  </form>
-
-<form method="post" action="upload.php?type=2" enctype="multipart/form-data">
-<div class="form-group row">
-    <div class="form-group col-md-9">
-      <div class="custom-file">
-        <input type='file' name='files[]' multiple class="custom-file-input" id="customFile">
+    <label for="amphur" class="col-md-3 col-form-label" align="left">รั้ว</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files3[]' multiple class="custom-file-input" id="customFile">
         <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
       </div>
     </div>
-    <div class="form-group col-md-3">
-      <button type='submit' value='Submit' name='submit' id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> เพิ่มรูป</button>
+    <label for="amphur" class="col-md-3 col-form-label" align="left">ป้าย รั้วด้านหน้า</label>
+    <div class="form-group col-md-9" align="left">
+      <div class="custom-file" align="center">
+        <input type='file' name='files4[]' multiple class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">กรุณาเลือกรูปภาพ</label>
+      </div>
     </div>
+    <div class="form-group col-md-4 offset-md-8">
+<button type='submit' value='Submit' name='submit' id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> เพิ่มรูป</button>
     </div>
+</div>
   </form>
 
   <table class="table table-hover table-bordered table-sm" id="myTable">
@@ -311,7 +313,7 @@ $i = 0;
              $i+=1;
             ?><tr>
       <th scope="row"><?php echo $i ?></th>
-      <td><a href="upload/<?php echo $row['name'];?>" target="_blank"><img src="upload/<?php echo $row['name'];?>" alt="Thumb-1" height="100"/></a></td>
+      <td><a href="upload/<?php echo $row['name'];?>" target="_blank"><img src="upload/<?php echo $row['name'];?>" alt="Thumb-1" height="100" style="max-width:350px !important;"/></a></td>
       <!-- <td><?php echo $row['name']?></td> -->
       <td>
       <!-- Button trigger modal -->

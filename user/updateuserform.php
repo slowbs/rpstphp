@@ -20,6 +20,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['id'] != $id){
   <script src="fuk.js"></script>
 </head>
 <body>
+<div class="container" align="center">
+<div class="col-md-6">
 	<div class="header">
 		<h2>แก้ไขรหัสผ่าน</h2>
 	</div>
@@ -51,5 +53,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['id'] != $id){
 			<a href="../user"><button type="button" class="btn btn-danger">ยกเลิก</button></a>
 		</div>
 	</form>
+	</div>
+	</div>
 </body>
 </html>
