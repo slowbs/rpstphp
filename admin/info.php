@@ -118,18 +118,36 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       <!-- <img src="http://placehold.it/500x333" width="100%" height="270"> -->
       <iframe src="http://maps.google.com/maps?q=8.417977, 99.964048&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0"></iframe>
     <br><br>
+        <table class="table table-borderless table-striped">
     <div id="lightgallery">
     <?php 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$sql = "SELECT * from info where hospcode = $ap;";
-    $sql = "SELECT * FROM `images` where user = $rpst";
+    $sql = "SELECT * FROM `images` where user = $rpst order by type, id";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->FetchAll(PDO::FETCH_ASSOC);
+    $name = array("1" => "รั้ว", "2" => "หน้าบ้าน", "3" => "ถนน");
+    //echo "แถว1";
+$i = 0;
     foreach($result as $row){
-      //echo $row['name'];?>
-      <a href="../user/upload/<?php echo $row['name'];?>"><img src="../user/upload/<?php echo $row['name'];?>" alt="Thumb-1" width="49%" style="margin-bottom:5px;border:5px outset #0D89A5;"  height="100"/></a>
+        if($row['type'] != $i){
+            $i += 1;
+            ?>
+            <thead>
+  <tr>
+    <th scope="col"><?php echo $name[$i]; ?></th>
+  </tr>
+</thead>
+<tbody>
+<td>
+          <?php
+        }?>
+        <a href="../user/upload/<?php echo $row['name'];?>"><img src="../user/upload/<?php echo $row['name'];?>" alt="Thumb-1" width="49%" style="margin-bottom:5px;border:5px outset #0D89A5;"  height="100"/></a>
+
+      
+      <!-- <a href="upload/<?php echo $row['name'];?>"><img src="upload/<?php echo $row['name'];?>" alt="Thumb-1" width="49%" style="margin-bottom:5px;border:5px outset #0D89A5;"  height="100"/></a> -->
     <?php } ?>
     
   <!-- <a href="img/1-1600.jpg"><img src="img/1-1600.jpg" alt="Thumb-1" width="49%" style="padding-bottom:3px;"/></a>
@@ -141,7 +159,8 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
   <a href="img/1-1600.jpg"><img src="img/1-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
   <a href="img/2-1600.jpg"><img src="img/2-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
   <a href="img/4-480.jpg"><img src="img/4-480.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a> -->
-  
+</table>
+
 </div>
     </div>
     <?php }}
