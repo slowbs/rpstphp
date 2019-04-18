@@ -10,7 +10,8 @@
     $ap = $_SESSION['user']['hospcode'];
 include "dbupload.php";
  
-if(empty($_FILES['files1']['name']['0']) && empty($_FILES['files2']['name']['0'])){
+if(empty($_FILES['files1']['name']['0']) && empty($_FILES['files2']['name']['0']) 
+&& empty($_FILES['files3']['name']['0']) && empty($_FILES['files4']['name']['0'])){
 
   echo "<script>
   alert('กรุณาเลือกรูปภาพ');
