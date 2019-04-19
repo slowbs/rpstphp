@@ -9,6 +9,9 @@ $village = isset($_POST['village']) ? $_POST['village'] : '';
 $address = isset($_POST['address']) ? $_POST['address'] : '';
 $nurse = isset($_POST['nurse']) ? $_POST['nurse'] : '';
 $academic = isset($_POST['academic']) ? $_POST['academic'] : '';
+$officer = isset($_POST['officer']) ? $_POST['officer'] : '';
+$thaimed = isset($_POST['thaimed']) ? $_POST['thaimed'] : '';
+$physic = isset($_POST['physic']) ? $_POST['physic'] : '';
 $dentist = isset($_POST['dentist']) ? $_POST['dentist'] : '';
 $other = isset($_POST['other']) ? $_POST['other'] : '';
 $total = isset($_POST['total']) ? $_POST['total'] : '';
@@ -31,7 +34,8 @@ try {
         
             $sql = "UPDATE info SET amphur = '$amphur', tambon = '$tambon', village = '$village', 
             address = '$address', academic = '$academic', nurse = '$nurse', dentist = '$dentist',
-            other = '$other', total = '$total',updated_time = NOW(), updated_by = '$ap' 
+            officer = '$officer', thaimed = '$thaimed', physic = '$physic', other = '$other',
+            total = '$total',updated_time = NOW(), updated_by = '$ap' 
             where hospcode = '$hospcode';";
 
     // Prepare statement
@@ -42,8 +46,11 @@ try {
 
     // echo a message to say the UPDATE succeeded
     //echo $stmt->rowCount() . " records UPDATED successfully";
-    echo "<script>
+    /* echo "<script>
 alert('แก้ไขสำเร็จ');
+window.location.href='info.php?id=$hospcode&acode=$acode';
+</script>"; */
+echo "<script>
 window.location.href='info.php?id=$hospcode&acode=$acode';
 </script>";
     }

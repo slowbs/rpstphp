@@ -28,7 +28,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$sql = "SELECT * from info where hospcode = $ap;";
     $sql = "SELECT i.info_id as id, address, hospname, villagename, TAMBONNAME, amphur_name, academic, nurse, dentist,
-    other, total, time_format(updated_time, '%d/%m/%Y %H:%i') as updated_time, updated_by
+    officer,thaimed, physic, other, total, time_format(updated_time, '%d/%m/%Y %H:%i') as updated_time, updated_by
     FROM `info` i 
     left JOIN amphur a on a.amphurcode = i.amphur
 left JOIN tambon t on t.TAMBON = i.tambon and t.AMPUR = i.amphur
@@ -47,10 +47,14 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       $amphur = $row['amphur_name'];
       $tambon = $row['TAMBONNAME'];
       $village = $row['villagename'];
+      $officer = $row['officer'];
       $academic = $row['academic'];
       $nurse = $row['nurse'];
       $dentist = $row['dentist'];
       $other = $row['other'];
+      $dentist = $row['dentist'];
+      $thaimed = $row['thaimed'];
+      $physic = $row['physic'];
       $total = $row['total'];
       $juck = $row['hospname'];
       //echo $amphurcode;
@@ -90,6 +94,10 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       <td><?php echo $academic;?> คน</td>
     </tr>
     <tr>
+      <th scope="row">เจ้าหน้าที่สาธารณสุข</th>
+      <td><?php echo $officer;?> คน</td>
+    </tr>
+    <tr>
       <th scope="row">พยาบาล</th>
       <td><?php echo $nurse;?> คน</td>
     </tr>
@@ -98,7 +106,15 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       <td><?php echo $dentist;?> คน</td>
     </tr>
     <tr>
-      <th scope="row">อื่น ๆ</th>
+      <th scope="row">แพทย์แผนไทย</th>
+      <td><?php echo $thaimed;?> คน</td>
+    </tr>
+    <tr>
+      <th scope="row">กายภาพบำบัด</th>
+      <td><?php echo $physic;?> คน</td>
+    </tr>
+    <tr>
+      <th scope="row">อื่นๆ  </th>
       <td><?php echo $other;?> คน</td>
     </tr>
     <tr>
@@ -114,7 +130,6 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       <iframe src="http://maps.google.com/maps?q=8.417977, 99.964048&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0"></iframe>
     <br><br>
         <table class="table table-borderless table-striped">
-    <div id="lightgallery">
     <?php 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -123,7 +138,7 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->FetchAll(PDO::FETCH_ASSOC);
-    $name = array("1" => "รั้ว", "2" => "หน้าบ้าน", "3" => "ถนน");
+    $name = array("1" => "ป้าย", "2" => "หน้าบ้าน", "3" => "ถนน", "4" => "รั้ว");
     //echo "แถว1";
 $i = 0;
     foreach($result as $row){
@@ -136,28 +151,16 @@ $i = 0;
   </tr>
 </thead>
 <tbody>
-<td>
+<td id="lightgallery<?php echo $i?>">
           <?php
         }?>
         <a href="user/upload/<?php echo $row['name'];?>"><img src="user/upload/<?php echo $row['name'];?>" alt="Thumb-1" width="49%" style="margin-bottom:5px;border:5px outset #0D89A5;"  height="100"/></a>
 
-      
-      <!-- <a href="upload/<?php echo $row['name'];?>"><img src="upload/<?php echo $row['name'];?>" alt="Thumb-1" width="49%" style="margin-bottom:5px;border:5px outset #0D89A5;"  height="100"/></a> -->
     <?php } ?>
     
-  <!-- <a href="img/1-1600.jpg"><img src="img/1-1600.jpg" alt="Thumb-1" width="49%" style="padding-bottom:3px;"/></a>
-  <a href="img/2-1600.jpg"><img src="img/2-1600.jpg" alt="Thumb-1" width="49%" style="padding-bottom:3px;"/></a>
-  <a href="img/4-480.jpg"><img src="img/4-480.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
-  <a href="img/1-1600.jpg"><img src="img/1-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
-  <a href="img/2-1600.jpg"><img src="img/2-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a> -->
-  <!-- <a href="img/4-480.jpg"><img src="img/4-480.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
-  <a href="img/1-1600.jpg"><img src="img/1-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
-  <a href="img/2-1600.jpg"><img src="img/2-1600.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a>
-  <a href="img/4-480.jpg"><img src="img/4-480.jpg" alt="Thumb-1" width="49%"  style="padding-bottom:3px;"/></a> -->
 </table>
   
 </div>
-    </div>
     <?php }}
 catch(PDOException $e)
     {
@@ -214,7 +217,9 @@ $(document).ready(function(){
        var academic = parseFloat($("#academic").val());
        var nurse = parseFloat($("#nurse").val());
        var dentist = parseFloat($("#dentist").val());
-       var other = parseFloat($("#other").val());
+       var officer = parseFloat($("#officer").val());
+       var thaimed = parseFloat($("#thaimed").val());
+       var physic = parseFloat($("#physic").val());
        //var gane5 = parseFloat($("#gane5_"+boxid).text());
        //alert(score)
        var koon = $("#koon"+boxid).text()
@@ -224,7 +229,7 @@ $(document).ready(function(){
             $("#"+boxid).val("")
            }
            else{
-            var total = academic + nurse + dentist + other;
+            var total = academic + nurse + dentist + officer + thaimed + physic;
             //alert(total);
             $("#total").val(total);
        }
@@ -232,6 +237,10 @@ $(document).ready(function(){
 });
 </script>
 <script type="text/javascript">
-    lightGallery(document.getElementById('lightgallery')); 
+    lightGallery(document.getElementById('lightgallery1')); 
+    lightGallery(document.getElementById('lightgallery2')); 
+    lightGallery(document.getElementById('lightgallery3'));
+    lightGallery(document.getElementById('lightgallery4'));
+    lightGallery(document.getElementById('lightgallery5'));
 </script>
 </html>

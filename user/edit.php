@@ -65,10 +65,14 @@ try {
       $amphur = $row['amphur'];
       $tambon = $row['tambon'];
       $village = $row['village'];
+      $officer = $row['officer'];
       $academic = $row['academic'];
       $nurse = $row['nurse'];
       $dentist = $row['dentist'];
       $other = $row['other'];
+      $dentist = $row['dentist'];
+      $thaimed = $row['thaimed'];
+      $physic = $row['physic'];
       $total = $row['total'];
       //echo $amphurcode;
       ?>
@@ -136,7 +140,7 @@ try {
     <label for="amphur" class="col-md-2 col-form-label" align="left">ตำบล</label>
     <div class="col-md-8">
     <select class="form-control" id="state" name="tambon">
-    <option value="">Select ตำบล</option>
+    <option value="">กรุณาเลือกตำบล</option>
     <?php
 		  $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
 		  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -211,31 +215,49 @@ try {
   </div>
   <?php } ?>
   <div class="form-group row">
-    <label for="amphur" class="col-md-4 col-form-label" align="left">นักวิชาการ สาธารณสุข</label>
+    <label for="academic" class="col-md-4 col-form-label" align="left">นักวิชาการ สาธารณสุข</label>
     <div class="col-md-6">
     <input class="form-control num" id="academic" type="text" placeholder="จำนวนคน" name="academic" value="<?php echo $academic;?>">
     </div>
   </div>
   <div class="form-group row">
-    <label for="amphur" class="col-md-4 col-form-label" align="left">พยาบาล</label>
+    <label for="officer" class="col-md-4 col-form-label" align="left">เจ้าหน้าที่สาธารณสุข</label>
+    <div class="col-md-6">
+    <input class="form-control num" id="officer" type="text" placeholder="จำนวนคน" name="officer" value="<?php echo $officer;?>">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="nurse" class="col-md-4 col-form-label" align="left">พยาบาล</label>
     <div class="col-md-6">
     <input class="form-control num" id="nurse" type="text" placeholder="จำนวนคน" name="nurse" value="<?php echo $nurse;?>">
     </div>
   </div>
   <div class="form-group row">
-    <label for="amphur" class="col-md-4 col-form-label" align="left">เจ้าพนักงานทันตสาธารณสุข</label>
+    <label for="dentist" class="col-md-4 col-form-label" align="left">เจ้าพนักงานทันตสาธารณสุข</label>
     <div class="col-md-6">
     <input class="form-control num" id="dentist" type="text" placeholder="จำนวนคน" name="dentist" value="<?php echo $dentist;?>">
     </div>
   </div>
   <div class="form-group row">
-    <label for="amphur" class="col-md-4 col-form-label" align="left">อื่น ๆ</label>
+    <label for="thaimed" class="col-md-4 col-form-label" align="left">แพทย์แผนไทย</label>
+    <div class="col-md-6">
+    <input class="form-control num" id="thaimed" type="text" placeholder="จำนวนคน" name="thaimed" value="<?php echo $thaimed;?>">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="physic" class="col-md-4 col-form-label" align="left">กายภาพบำบัด</label>
+    <div class="col-md-6">
+    <input class="form-control num" id="physic" type="text" placeholder="จำนวนคน" name="physic" value="<?php echo $physic;?>">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="other" class="col-md-4 col-form-label" align="left">อื่น ๆ</label>
     <div class="col-md-6">
     <input class="form-control num" id="other" type="text" placeholder="จำนวนคน" name="other" value="<?php echo $other;?>">
     </div>
   </div>
   <div class="form-group row">
-    <label for="amphur" class="col-md-4 col-form-label" align="left">รวม</label>
+    <label for="total" class="col-md-4 col-form-label" align="left">รวม</label>
     <div class="col-md-6">
     <input class="form-control num" id="total" type="text" placeholder="จำนวนคน" readonly="readonly" name="total" value="<?php echo $total;?>">
     </div>
@@ -388,8 +410,8 @@ $(document).ready(function(){
                 }
             }); 
         }else{
-            $('#state').html('<option value="">Select country first</option>');
-            $('#city').html('<option value="">Select state first</option>'); 
+            $('#state').html('<option value="">กรุณาเลือกตำบล</option>');
+            $('#city').html('<option value="">กรุณาเลือกหมู่บ้าน</option>'); 
         }
     });
     
@@ -406,7 +428,7 @@ $(document).ready(function(){
                 }
             }); 
         }else{
-            $('#city').html('<option value="">Select state first</option>'); 
+            $('#city').html('<option value="">กรุณาเลือกหมู่บ้าน</option>'); 
         }
     });
 
@@ -420,11 +442,14 @@ $(document).ready(function(){
             alert("กรุณากรอกเฉพาะตัวเลข")
             $('#'+boxid).val("")
            }
-           var academic = parseFloat($("#academic").val() || 0);
+       var academic = parseFloat($("#academic").val() || 0);
        var nurse = parseFloat($("#nurse").val() || 0);
        var dentist = parseFloat($("#dentist").val() || 0);
+       var officer = parseFloat($("#officer").val() || 0);
+       var thaimed = parseFloat($("#thaimed").val() || 0);
+       var physic = parseFloat($("#physic").val() || 0);
        var other = parseFloat($("#other").val() || 0);
-            var total = academic + nurse + dentist + other;
+            var total = academic + nurse + dentist + officer + thaimed + physic + other;
             //alert(total);
             $("#total").val(total);
             //$("#total").val(boxid);

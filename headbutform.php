@@ -1,5 +1,4 @@
 <div style="float: left"><a href="index.php"><button type="button" class="btn btn-success">หน้าหลัก</button></a>
-<!-- <a href="type.php?y=<?php echo $y ?>&ep=<?php echo $ep?>"><button type="button" class="btn btn-success">ประเภท</button></a> -->
 <a href="rplist.php?acode=<?php echo $acode?>"><button type="button" class="btn btn-success">ย้อนกลับ</button></a></div>
 <div align="right"><a href="user/login.php" class="btn btn-success" role="button" aria-pressed="true">เข้าสู่ระบบ</a></div>
 <div align="right">
