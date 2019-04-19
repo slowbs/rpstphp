@@ -47,7 +47,7 @@
 <body>
 <br>
 <div class="container" align="center">
-<h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข</h1>
+<h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
   <h2 align="center"><?php echo $hospname?></h2>
   <br>
 <?php
@@ -313,9 +313,9 @@ try {
   <table class="table table-hover table-bordered table-sm" id="myTable">
   <thead style="text-align:center" class="thead-dark">
     <tr>
-      <th scope="col">ลำดับที่</th>
+    <th scope="col" style="width:70px">ลำดับที่</th>
       <th scope="col">รูปภาพ</th>
-      <th scope="col">ลบ</th>
+      <th scope="col" style="width:60px">ลบ</th>
     </tr>
   </thead>
   <tbody style="text-align:center">

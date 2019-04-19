@@ -75,7 +75,7 @@ try {
       $juck = $row['hospname'];
       //echo $amphurcode;
       ?>
-      <h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข</h1>
+      <h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
   <h2 align="center"><?php echo $juck?></h2>
   <br>
       <div class="header">
@@ -104,8 +104,8 @@ Last-Modified:  <?php echo $row['updated_time'];?> by <?php echo $row['updated_b
 <br>
         <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">ข้อมูล</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">รูปภาพ</a>
     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
   </div>
 </nav>
@@ -274,7 +274,7 @@ Last-Modified:  <?php echo $row['updated_time'];?> by <?php echo $row['updated_b
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
   <br>
-<form method="post" action="upload.php" enctype="multipart/form-data">
+<form method="post" action="upload.php?ap=<?php echo $ap?>&acode=<?php echo $acode ?>" enctype="multipart/form-data">
 <div class="form-group row">
 <label for="amphur" class="col-md-3 col-form-label" align="left">ป้าย รั้วด้านหน้า</label>
     <div class="form-group col-md-9" align="left">
@@ -312,9 +312,9 @@ Last-Modified:  <?php echo $row['updated_time'];?> by <?php echo $row['updated_b
   <table class="table table-hover table-bordered table-striped table-sm" id="myTable">
   <thead style="text-align:center" class="thead-dark">
     <tr>
-      <th scope="col">ลำดับที่</th>
-      <th scope="col">ชื่อผู้ใช้</th>
-      <th scope="col">ลบ</th>
+      <th scope="col" style="width:70px">ลำดับที่</th>
+      <th scope="col">รูปภาพ</th>
+      <th scope="col" style="width:60px">ลบ</th>
     </tr>
   </thead>
   <tbody style="text-align:center">
@@ -334,7 +334,7 @@ $i = 0;
              $i+=1;
             ?><tr>
       <th scope="row"><?php echo $i ?></th>
-      <td><a href="../user/upload/<?php echo $row['name'];?>" target="_blank"><img src="../user/upload/<?php echo $row['name'];?>" alt="Thumb-1" height="100"/></a></td>
+      <td><a href="../user/upload/<?php echo $row['name'];?>" target="_blank"><img src="../user/upload/<?php echo $row['name'];?>" alt="Thumb-1" height="100" style="max-width:350px !important;"/></a></td>
       <!-- <td><?php echo $row['name']?></td> -->
       <td>
       <!-- Button trigger modal -->
@@ -455,7 +455,7 @@ $(document).ready(function(){
     });
     $('input[type="file"]').on("change", function() {
     let filenames = [];
-    let files = document.getElementById("customFile").files;
+    let files = this.files;
     if (files.length > 1) {
       filenames.push("Total Files (" + files.length + ")");
     } else {

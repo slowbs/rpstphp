@@ -17,10 +17,10 @@ $juck = $_SESSION['juck'][$acode];
 <body>
 <div class="container" align="center">
 <br>
-<h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข </h1>
+<h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
   <h2 align="center">อำเภอ<?php echo $juck?></h2>
   <div class="col-md-8">
-    <br><br>
+    <br>
   <div style="float: left"><a href="index.php"><button type="button" class="btn btn-success">หน้าหลัก</button></a></div>
   <div align="right"><a href="user/login.php" class="btn btn-success" role="button" aria-pressed="true">เข้าสู่ระบบ</a></div>
 <br><table class="table table-hover table-bordered table-striped table-sm" id="myTable">

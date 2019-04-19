@@ -17,8 +17,6 @@ $acode = isset($_GET['acode']) ? $_GET['acode'] : '';
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
   <script src="js/lightgallery.js"></script>
 </head>
-<body>
-<br>
 <div class="container" align="center">
   <br>
 <?php
@@ -38,8 +36,6 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
     $stmt->execute();
     $result = $stmt->FetchAll(PDO::FETCH_ASSOC);
     foreach($result as $row){?>
-
-<br>
 <?php
       
       //echo $row['address'];
@@ -59,8 +55,9 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       $juck = $row['hospname'];
       //echo $amphurcode;
       ?>
-      <h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข</h1>
+      <h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
   <h2 align="center"><?php echo $juck ?></h2>
+  <br>
       <div class="header">
 	</div>
 	<div class="col-md-8">

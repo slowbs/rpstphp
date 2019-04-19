@@ -63,7 +63,7 @@ left JOIN village on village.villagecode = i.village and village.ampurcode = i.a
       $juck = $row['hospname'];
       //echo $amphurcode;
       ?>
-    <h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข</h1>
+    <h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
     <h2 align="center"><?php echo $juck?></h2>
     <br>
       <div class="header">

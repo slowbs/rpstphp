@@ -23,7 +23,7 @@ if (!isLoggedIn()) {
 <body>
 <div class="container" align="center">
 <br>
-<h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข </h1>
+<h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข</h1>
   <h2 align="center">อำเภอ<?php echo $juck ?></h2>
   <div class="col-md-8">
 <br>

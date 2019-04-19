@@ -23,8 +23,8 @@ if (!isAdmin()) {
 <body>
 <div class="container" align="center">
 <br>
-<h1 align="center">การประเมินผลการพัฒนางานสาธารณสุข </h1>
-  <h2 align="center">สำนักงานสาธารณสุขจังหวัดนครศรีธรรมราช</h2>
+<h1 align="center">ระบบสารสนเทศสถานบริการสาธารณสุข </h1>
+  <h2 align="center">จังหวัดนครศรีธรรมราช</h2>
   <br>
   <div class="col-md-8">
 <div align="right">

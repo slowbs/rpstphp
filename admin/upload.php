@@ -9,15 +9,28 @@
   }
     //$ap = $_SESSION['user']['username'];
     $ap = isset($_GET['ap']) ? $_GET['ap'] : '';
+    $acode = isset($_GET['acode']) ? $_GET['acode'] : '';
 include "dbupload.php";
  
-if(!empty($_FILES['files']['name']['0'])){
+if(empty($_FILES['files1']['name']['0']) && empty($_FILES['files2']['name']['0']) 
+&& empty($_FILES['files3']['name']['0']) && empty($_FILES['files4']['name']['0'])){
 
+  echo "<script>
+  alert('กรุณาเลือกรูปภาพ');
+  window.location.href='edit.php?id=$ap#nav-profile';
+  </script>";
+
+}
+else{
+  //print_r($_FILES);
   // Count total files
-  $countfiles = count($_FILES['files']['name']);
- 
+  $countarray = count($_FILES);
+  for($j=1;$j<=$countarray;$j++){
+
+  $countfiles = count($_FILES["files$j"]['name']);
+  //echo $countfiles;
   // Prepared statement
-  $query = "INSERT INTO images (name,image,user,time) VALUES(?,?,'$ap',NOW())";
+  $query = "INSERT INTO images (name,image,user,time,type) VALUES(?,?,'$ap',NOW(),'$j')";
 
   $statement = $conn->prepare($query);
 
@@ -25,7 +38,7 @@ if(!empty($_FILES['files']['name']['0'])){
   for($i=0;$i<$countfiles;$i++){
 
     // File name
-    $filename = $_FILES['files']['name'][$i];
+    $filename = $_FILES["files$j"]['name'][$i];
 
     // Get extension
     $tmp = explode('.', $filename);
@@ -40,14 +53,14 @@ if(!empty($_FILES['files']['name']['0'])){
     if(in_array($ext, $valid_ext)){
 
       // Upload file
-      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../user/upload/'.$filename)){
+      if(move_uploaded_file($_FILES["files$j"]['tmp_name'][$i],'../user/upload/'.$filename)){
 
         //$filename = "'upload/'$filename"; /*ADD YOUR FILENAME WITH PATH*/
 
         //echo "<script>alert('fuck')</script>";
 
         // Execute query
-        $statement->execute(array($filename,'upload/'.$filename));
+        $statement->execute(array($filename,'../user/upload/'.$filename));
         correctImageOrientation('../user/upload/'.$filename);
 
       }
@@ -55,18 +68,14 @@ if(!empty($_FILES['files']['name']['0'])){
     }
 
   }
+}
 
   //echo "File upload successfully";
   echo "<script>
     alert('เพิ่มรูปภาพสำเร็จ');
-    window.location.href='edit.php?id=$ap#nav-profile';
+    window.location.href='edit.php?id=$ap&acode=$acode#nav-profile';
     </script>";
-}
-else{
-  echo "<script>
-  alert('กรุณาเลือกรูปภาพ');
-  window.location.href='edit.php#nav-profile';
-  </script>";
+  
 }
 function correctImageOrientation($filename) {
   if (function_exists('exif_read_data')) {
