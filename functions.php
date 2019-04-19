@@ -2,7 +2,7 @@
 	session_start();
 
 	// connect to database
-	$db = mysqli_connect('localhost', 'slowbs', 'sodsongig4', 'ssj');
+	$db = mysqli_connect('localhost', 'slowbs', 'sodsongig4', 'rpst');
 	mysqli_set_charset($db,"utf8");
 
 	// variable declaration
