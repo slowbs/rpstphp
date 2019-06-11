@@ -1,0 +1,16 @@
+SELECT i.info_id as id, i.address,hospname, villagename, TAMBONNAME, amphur_name, academic, nurse, dentist,
+    other, total, time_format(updated_time, '%d/%m/%Y %H:%i') as updated_time, updated_by
+    FROM `info` i 
+    left JOIN amphur a on a.amphurcode = i.amphur
+left JOIN tambon t on t.TAMBON = i.tambon and t.AMPUR = i.amphur
+left JOIN village on village.villagecode = i.village and village.ampurcode = i.amphur and village.tamboncode = i.tambon
+left JOIN client on client.hospcode = i.hospcode
+    where i.hospcode = '08756'
+
+SELECT i.info_id as id, address, villagename, TAMBONNAME, amphur_name, academic, nurse, dentist,
+    other, total, time_format(updated_time, '%d/%m/%Y %H:%i') as updated_time, updated_by
+    FROM `info` i 
+    left JOIN amphur a on a.amphurcode = i.amphur
+left JOIN tambon t on t.TAMBON = i.tambon and t.AMPUR = i.amphur
+left JOIN village on village.villagecode = i.village and village.ampurcode = i.amphur and village.tamboncode = i.tambon
+    where i.hospcode = '08756'

@@ -1,0 +1,72 @@
+SELECT i.info_id as id, address, villagename, TAMBONNAME, amphur_name   FROM `info` i 
+inner JOIN amphur a on a.amphurcode = i.amphur
+inner JOIN tambon t on t.TAMBON = i.amphur
+inner JOIN village on village.villagecode = i.village
+where i.info_id = 2 group by i.info_id
+
+
+//show form
+SELECT i.info_id as id, address, villagename, TAMBONNAME, amphur_name, academic, nurse, dentist,
+other, total, updated_time, updated_by
+FROM `info` i 
+inner JOIN amphur a on a.amphurcode = i.amphur
+inner JOIN tambon t on t.TAMBON = i.tambon and t.AMPUR = i.amphur
+inner JOIN village on village.villagecode = i.village and village.ampurcode = i.amphur and village.tamboncode = i.tambon
+where i.info_id = 2 group by i.info_id
+
+
+//sync info
+ SELECT  client.* FROM   client
+        WHERE   NOT EXISTS
+        (
+        SELECT  NULL
+        FROM    info
+        WHERE   info.hospcode = client.hospcode
+        )
+
+//sync info with insert
+ insert into info (`hospcode`,`hospname`)
+ SELECT  client.hospcode, client.hospname FROM   client
+        WHERE   NOT EXISTS
+        (
+        SELECT  NULL
+        FROM    info
+        WHERE   info.hospcode = client.hospcode
+        )
+
+//sync users
+ SELECT  client.* FROM   client
+        WHERE   NOT EXISTS
+        (
+        SELECT  NULL
+        FROM    users
+        WHERE   users.username = client.hospcode
+        )
+
+//sync users with insert
+ INSERT into users (username, user_type, password, hospcode, hospname)
+ SELECT  client.hospcode,"user",MD5(hospcode),client.hospcode, client.hospname FROM   client
+        WHERE   NOT EXISTS
+        (
+        SELECT  NULL
+        FROM    users
+        WHERE   users.username = client.hospcode
+        )
+
+
+ UPDATE users SET users.hospname VALUES 
+ (SELECT client.hospname FROM client
+        WHERE  EXISTS
+        (
+        SELECT  NULL
+        FROM    users
+        WHERE   users.username = client.hospcode
+        )) where users.hospcode = client.hospcode
+
+
+login
+SELECT users.id,users.username,users.user_type,users.password,users.hospcode,users.hospname,client.amphurcode as acode FROM users 
+left join client on users.hospcode = client.hospcode
+WHERE username='08756'
+
+SELECT * FROM users WHERE username='08756'

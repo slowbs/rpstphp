@@ -1,0 +1,45 @@
+CREATE TRIGGER 'results' AFTER UPDATE ON 'rpst' FOR EACH ROW
+BEGIN
+UPDATE amphur SET a=(SELECT SUM(a)FROM rpst) WHERE apcode=1;
+END
+
+
+
+UPDATE amphur SET
+a = (
+    SELECT SUM(a)
+    FROM rpst
+    WHERE rpst.apcode = amphur.apcode)
+
+//Update amphur a and b
+UPDATE amphur SET a = (SELECT SUM(a) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b = (SELECT SUM(b) FROM rpst WHERE rpst.apcode = amphur.apcode)
+
+
+
+//update set rpst
+UPDATE amphur SET 
+a1 = (SELECT SUM(a1) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a2 = (SELECT SUM(a2) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a3 = (SELECT SUM(a3) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a4 = (SELECT SUM(a4) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a5 = (SELECT SUM(a5) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a6 = (SELECT SUM(a6) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a7 = (SELECT SUM(a7) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a8 = (SELECT SUM(a8) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a9 = (SELECT SUM(a9) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a10 = (SELECT SUM(a10) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a11 = (SELECT SUM(a11) FROM rpst WHERE rpst.apcode = amphur.apcode),
+a12 = (SELECT SUM(a12) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b1 = (SELECT SUM(b1) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b2 = (SELECT SUM(b2) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b3 = (SELECT SUM(b3) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b4 = (SELECT SUM(b4) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b5 = (SELECT SUM(b5) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b6 = (SELECT SUM(b6) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b7 = (SELECT SUM(b7) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b8 = (SELECT SUM(b8) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b9 = (SELECT SUM(b9) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b10 = (SELECT SUM(b10) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b11 = (SELECT SUM(b11) FROM rpst WHERE rpst.apcode = amphur.apcode),
+b12 = (SELECT SUM(b12) FROM rpst WHERE rpst.apcode = amphur.apcode)
