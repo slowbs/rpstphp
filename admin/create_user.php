@@ -85,7 +85,7 @@ include 'db.php';
 			<label>ยืนยันรหัสผ่าน</label>
 			<input type="password" name="password_2">
 		</div>
-		<div>
+		<div align="left">
 			<button type="submit" class="btn btn-primary" name="register_btn">บันทึก</button>
 			<a href="../admin"><button type="button" class="btn btn-danger">ยกเลิก</button></a>
 		</div>

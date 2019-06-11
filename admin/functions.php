@@ -129,7 +129,7 @@
 				mysqli_query($db, $query);
 				$_SESSION['success']  = "Update Successed";
 				//echo $id;
-				header('location: year.php');
+				header('location: ../admin');
 			}else{
 /* 				$query = "INSERT INTO users (username, user_type, password) 
 						  VALUES('$username', 'user', '$password')";

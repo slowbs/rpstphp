@@ -50,7 +50,7 @@ if (!isAdmin()) {
 			<input type="hidden" name="id">
 		</div>
 		<div align="left">
-			<button type="submit" class="btn btn-primary" name="register_btn">บันทึก</button>
+			<button type="submit" class="btn btn-primary" name="updateuser_btn">บันทึก</button>
 			<a href="../admin"><button type="button" class="btn btn-danger">ยกเลิก</button></a>
 		</div>
 	</form>
